@@ -1,9 +1,20 @@
+'''
+preorder write value to results first, then go left, then go right. [47, 21, 18, 27, 76, 52, 82]
+inorder: look left, write value, then look right [18, 21, 27, 47, 52, 76, 82]
+postorder: look left, look right, finally write value [18, 27, 21, 52, 82, 76, 47]
+
+            47
+        21      76
+      18   27  52  82
+
+'''
 class Node:
     def __init__(self, value):
         self.value = value
         self.left = None
         self.right = None
-    
+        
+
 class BinarySearchTree:
     def __init__(self):
         self.root = None
@@ -40,32 +51,56 @@ class BinarySearchTree:
             else:
                 return True
         return False
-  
-  
-    ### WRITE BFS METHOD HERE ###
-    
-    '''
-            47
-        21      76
-      18   27  52  82
-    '''
+        
     def BFS(self):
         current_node = self.root
         queue = []
         results = []
         queue.append(current_node)
-        
-        while len(queue) >0:
+
+        while len(queue) > 0:
             current_node = queue.pop(0)
-            results.append(current_node.value) # append value, not node itself
+            results.append(current_node.value)
             if current_node.left is not None:
                 queue.append(current_node.left)
             if current_node.right is not None:
                 queue.append(current_node.right)
         return results
-            
+    
+    ### WRITE DFS METHOD HERE ###
+    def dfs_pre_order(self):
+        results = []
+        def traverse(current_node):
+            results.append(current_node.value)
+            if current_node.left is not None:
+                traverse(current_node.left)
+            if current_node.right is not None:
+                traverse(current_node.right)
+        traverse(self.root)
+        return results
         
-        
+    def dfs_in_order(self):
+        results = []
+        def traverse(current_node):
+            if current_node.left is not None:
+                traverse(current_node.left)
+            results.append(current_node.value)
+            if current_node.right is not None:
+                traverse(current_node.right)
+        traverse(self.root)
+        return results
+    
+    def dfs_post_order(self):
+        results = []
+        def traverse(current_node):
+            if current_node.left is not None:
+                traverse(current_node.left)
+            if current_node.right is not None:
+                traverse(current_node.right)
+            results.append(current_node.value)
+        traverse(self.root)
+        return results
+    #######################################
 
 
 
@@ -79,13 +114,12 @@ my_tree.insert(27)
 my_tree.insert(52)
 my_tree.insert(82)
 
-print(my_tree.BFS())
+print(my_tree.dfs_pre_order())
+print(my_tree.dfs_in_order())
+print(my_tree.dfs_post_order())
 
 
 
-"""
-    EXPECTED OUTPUT:
-    ----------------
-    [47, 21, 76, 18, 27, 52, 82]
+                
 
- """
+
