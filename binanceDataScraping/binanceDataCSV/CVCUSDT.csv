@@ -1,0 +1,6 @@
+tier,position_bracket,max_leverage,maintenance_margin_rate,maintenance_amount
+1,0 - 25000,10x,0.025,0
+2,25000 - 100000,8x,0.05,625
+3,100000 - 250000,5x,0.1,5625
+4,250000 - 1000000,2x,0.125,11875
+5,1000000 - 2000000,1x,0.5,386875

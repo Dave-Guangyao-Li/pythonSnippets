@@ -27,7 +27,8 @@ dict1 = {
          'value': 11
         }
 
-dict2 = dict1  # point to same dict
+dict2 = dict1  # both variable point to same dict
+# if no variable pointing to a dict, this dict will be removed by garbage collection mechanism
 
 print("\n\nBefore value is updated:")
 print("dict1 =", dict1)

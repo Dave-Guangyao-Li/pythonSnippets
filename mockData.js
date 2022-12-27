@@ -1,0 +1,4 @@
+export const data = [
+    { name: 'John Doe', email: 'johndoe@example.com' },
+    { name: 'Jane Smith', email: 'janesmith@example.com' }
+];

@@ -1,5 +1,8 @@
 '''
+https://www.bigocheatsheet.com/
+
 best: omega, average:theta, worst:omicron
+
 n = 1,000
 O(1) = 1 constant
 O(logn) = 10
